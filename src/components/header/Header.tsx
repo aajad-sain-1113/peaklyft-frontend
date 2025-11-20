@@ -4,7 +4,6 @@ import Image from "next/image";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
-import { Menu } from "lucide-react";
 import Navbar from "./Navbar";
 import { Button } from "../ui/button";
 
@@ -14,11 +13,13 @@ const Header = () => {
   return (
     <>
       <Navbar />
-      <header className="w-full">
-        <div className="max-w-[1320px] mx-auto flex items-center justify-between py-2">
+      <header className="w-full lg:p-0 p-2.5">
+        <div className="container flex items-center justify-between sm:py-2">
           <div className="flex items-center gap-2.5">
-            <Image src="/logo.png" alt="Logo" width={190} height={62} />
-            <Button variant={"main"} className="gap-2.5 h-[39.5px] w-[109px]">
+            <a href="/">
+            <Image src="/logo.png" alt="Logo" className="lg:w-[190px] w-[106.48px]" width={190} height={62} />
+            </a>
+            <Button variant={"main"} className="gap-2.5 h-[39.5px] w-[109px] hidden sm:flex">
               Explore{" "}
               <svg
                 aria-hidden="true"
@@ -34,18 +35,16 @@ const Header = () => {
             </Button>
           </div>
           <DesktopMenu />
-          <Button
-            className="hidden md:block bg-[#FF802C00] font-[Poppins] text-[14px] font-medium fill-[#4E5FF5] text-[#4E5FF5] border border-[#4E5FF5] rounded-[4px] pt-[9px] pb-[29px] px-5"
-          >
+          <Button className="hidden sm:block bg-[#FF802C00] font-[Poppins] text-[14px] font-medium fill-secondary text-secondary border border-secondary hover:bg-primary hover:text-main hover:border-primary rounded-[4px] pt-[9px] pb-[29px] px-5">
             Schedule a Demo
           </Button>
 
-          <button onClick={() => setOpen(!open)} className="md:hidden">
-            <Menu size={28} />
+          <button onClick={() => setOpen(true)} className="sm:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 20 16" fill="none"><rect y="7" width="20" height="2" rx="1" fill="#4E5FF5"></rect><rect y="14" width="20" height="2" rx="1" fill="#4E5FF5"></rect><rect width="20" height="2" rx="1" fill="#4E5FF5"></rect></svg>
           </button>
         </div>
 
-        <MobileMenu open={open} />
+        <MobileMenu open={open} setOpen={setOpen} />
       </header>
     </>
   );
