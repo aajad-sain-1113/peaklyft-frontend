@@ -5,7 +5,7 @@ import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import { useState } from "react";
 import Navbar from "./Navbar";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 
 const Header = () => {
   const [open, setOpen] = useState(false);

@@ -1,6 +1,5 @@
-import { headerMenu } from "@/utils/utils";
+import { headerMenu } from "@/utils/Header";
 import MenuItem from "./MenuItem";
-import { Button } from "../ui/button";
 
 const DesktopMenu = () => {
   return (

@@ -2,45 +2,66 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { uniqueTabs, uniqueSectionContent } from "@/utils/utils";
 
-const UniqueSection = () => {
+interface UniqueTabType {
+  id: number;
+  title: string;
+  image: string;
+  heading: string;
+  description: string;
+}
+
+interface SectionContent {
+  title: {
+    normalStart: string;
+    highlight: string;
+    normalEnd: string;
+  };
+  subtitle: string;
+}
+
+const UniqueSection = ({
+  tabs,
+  sectionContent,
+}: {
+  tabs: UniqueTabType[];
+  sectionContent: SectionContent;
+}) => {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActive((prev) => (prev + 1) % uniqueTabs.length);
+      setActive((prev) => (prev + 1) % tabs.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [tabs.length]);
 
   return (
     <section className="py-8 container p-2.5 md:py-12">
-
       <h2 className="text-center font text-[28px] md:text-[36px] leading-[36px] md:leading-[42px] mb-[10px] px-4">
-        {uniqueSectionContent.title.normalStart}{" "}
-        <span className="text-primary">{uniqueSectionContent.title.highlight}</span>{" "}
-        {uniqueSectionContent.title.normalEnd}
+        {sectionContent.title.normalStart}{" "}
+        <span className="text-primary">{sectionContent.title.highlight}</span>{" "}
+        {sectionContent.title.normalEnd}
       </h2>
 
       <p className="text-center text-[#4A4848] font-normal leading-[24px] md:leading-[30px] mx-auto mb-[30px] md:mb-[41px] text-sm md:text-base px-4">
-        {uniqueSectionContent.subtitle}
+        {sectionContent.subtitle}
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-start">
-        
         <div className="flex flex-col gap-5">
-          {uniqueTabs.map((item, index) => (
+          {tabs.map((item, index) => (
             <div key={item.id} className="flex flex-col gap-4">
-
               <button
                 onClick={() => setActive(index)}
                 className={`
                   w-full md:w-[456px] h-[66px] text-left px-6 py-5 rounded-[8px] transition-all text-secondary
-                  ${active === index
-                    ? "bg-secondary text-white"
-                    : "bg-primary-foreground text-foreground hover:text-main hover:bg-secondary"}
+                  ${
+                    active === index
+                      ? "bg-secondary text-white"
+                      : "bg-primary-foreground text-foreground hover:text-main hover:bg-secondary"
+                  }
                 `}
               >
                 <div className="flex gap-3 items-center">
@@ -57,7 +78,7 @@ const UniqueSection = () => {
               {active === index && (
                 <div className="md:hidden animate-fade-up animate-duration-500">
                   <Image
-                    src={uniqueTabs[active].image}
+                    src={tabs[active].image}
                     alt="demo"
                     width={500}
                     height={300}
@@ -65,11 +86,11 @@ const UniqueSection = () => {
                   />
 
                   <h3 className="mt-4 mb-2.5 text-[20px] font-semibold leading-6 text-center px-4">
-                    {uniqueTabs[active].heading}
+                    {tabs[active].heading}
                   </h3>
 
                   <p className="text-black mt-2 text-sm font-normal leading-[24px] text-center px-4">
-                    {uniqueTabs[active].description}
+                    {tabs[active].description}
                   </p>
                 </div>
               )}
@@ -80,7 +101,7 @@ const UniqueSection = () => {
         <div className="relative hidden md:block">
           <div className="animate-fade-up animate-duration-500">
             <Image
-              src={uniqueTabs[active].image}
+              src={tabs[active].image}
               alt="demo"
               width={500}
               height={300}
@@ -88,11 +109,11 @@ const UniqueSection = () => {
             />
 
             <h3 className="mt-6 mb-2.5 text-[22px] font-semibold leading-6 text-center">
-              {uniqueTabs[active].heading}
+              {tabs[active].heading}
             </h3>
 
             <p className="text-black mt-2 text-base font-normal leading-[26px] max-w-xl text-center mx-auto">
-              {uniqueTabs[active].description}
+              {tabs[active].description}
             </p>
           </div>
         </div>

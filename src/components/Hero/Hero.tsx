@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "../ui/button";
-import BrandSlider from "../Slider";
+import BrandSlider from "../common/Slider/Slider";
 
 interface ComplexHero {
   type: "complex";

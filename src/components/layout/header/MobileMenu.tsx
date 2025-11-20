@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { X, ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
-import { headerMenu } from "@/utils/utils";
+import { headerMenu } from "@/utils/Header";
 import Image from "next/image";
 
 const MobileMenu = ({

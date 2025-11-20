@@ -3,9 +3,14 @@ import AcademiesSection from "../components/AcademiesSection";
 import UniqueSection from "../components/UniqueSection";
 import Methodology from "../components/Methodology";
 import ComparisonTable from "../components/ComparisonTable";
-import { academiesData, brandSections, comparisonData, heroSections } from "@/utils/utils";
+import { brandSections, heroSections } from "@/utils/Hero";
 import Trust from "../components/trust";
-import WhatsNew from "../components/WhatsNew";
+import WhatsNew from "../components/common/WhatsNew/WhatsNew";
+import { academiesData } from "@/utils/AcademiesData";
+import { uniqueSectionContent } from "@/utils/uniqueSection";
+import { uniqueTabs } from "@/utils/uniqueTabs";
+import { comparisonData } from "@/utils/comparisonData";
+import { whatsNewDefaultContent, whatsNewDefaultData } from "@/utils/utils";
 
 export default function HomePage() {
   return (
@@ -16,11 +21,14 @@ export default function HomePage() {
     />
 
       <AcademiesSection data={academiesData} defaultCategory="growth" />
-      <UniqueSection />
+      <UniqueSection 
+        tabs={uniqueTabs}
+        sectionContent={uniqueSectionContent}
+      />
       <Methodology />
       <ComparisonTable data={comparisonData} />
       <Trust />
-      <WhatsNew />
+      <WhatsNew content={whatsNewDefaultContent} data={whatsNewDefaultData}  />
     </div>
   );
 }

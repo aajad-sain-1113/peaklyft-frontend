@@ -2,9 +2,32 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { newsData, whatsNewContent } from "@/utils/utils";
 
-const WhatsNew = () => {
+interface WhatsNewContentType {
+  title: {
+    normalStart: string;
+    highlight: string;
+    normalEnd: string;
+  };
+  subtitle: string;
+  description: string;
+}
+
+interface NewsItem {
+  image: string;
+  tag: string;
+  title: string;
+  desc: string;
+  link: string;
+}
+
+const WhatsNew = ({
+  content,
+  data,
+}: {
+  content: WhatsNewContentType;
+  data: NewsItem[];
+}) => {
   return (
     <section className="w-full pb-20">
       <div
@@ -16,22 +39,22 @@ const WhatsNew = () => {
         <div className="flex flex-col md:flex-row items-start gap-5">
           <div className="w-full md:w-[260px] lg:w-[300px]">
             <h2 className="text-white text-3xl md:text-5xl font-extrabold leading-tight">
-              {whatsNewContent.title.normalStart} <br />
-              {whatsNewContent.title.highlight}
-              {whatsNewContent.title.normalEnd}
+              {content.title.normalStart} <br />
+              {content.title.highlight}
+              {content.title.normalEnd}
             </h2>
 
             <h3 className="text-xl md:text-2xl font-semibold">
-              {whatsNewContent.subtitle}
+              {content.subtitle}
             </h3>
 
             <p className="text-gray-600 mt-2 text-base leading-6">
-              {whatsNewContent.description}
+              {content.description}
             </p>
           </div>
 
           <div className="flex flex-col md:flex-row gap-3">
-            {newsData.map((item, i) => (
+            {data.map((item, i) => (
               <Link
                 key={i}
                 href={item.link}
