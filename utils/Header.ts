@@ -6,22 +6,22 @@ export const headerMenu = [
       {
         title: "Sales Academy",
         description: "Transform your salesforce into high performing teams.",
-        href: "/academies/sales-academy",
+        href: "/solutions/sales-academy",
       },
       {
         title: "Customer Success Academy",
         description: "Drive retention and customer loyalty.",
-        href: "/academies/customer-success-academy",
+        href: "/solutions/customer-success-academy",
       },
       {
         title: "Finance Academy",
         description: "Build high calibre finance teams.",
-        href: "/academies/finance",
+        href: "/solutions/finance",
       },
       {
         title: "Engineering Academy",
         description: "Strengthen engineering teams with modern skills.",
-        href: "/academies/engineering",
+        href: "/solutions/engineering",
       },
     ],
   },
@@ -33,17 +33,17 @@ export const headerMenu = [
       {
         title: "Sales Academy",
         description: "Structured capability-building programs.",
-        href: "/solutions/learning-suite",
+        href: "/industries/learning-suite",
       },
       {
         title: "Customer Success Academy",
         description: "Leverage generative AI for workforce acceleration.",
-        href: "/solutions/ai",
+        href: "/industries/ai",
       },
       {
         title: "Assessments",
         description: "Measure and benchmark skill gaps.",
-        href: "/solutions/assessments",
+        href: "/industries/assessments",
       },
     ],
   },

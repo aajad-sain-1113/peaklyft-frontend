@@ -5,7 +5,7 @@ import Methodology from "../components/Methodology";
 import ComparisonTable from "../components/ComparisonTable";
 import { brandSections, heroSections } from "@/utils/Hero";
 import Trust from "../components/trust";
-import WhatsNew from "../components/common/WhatsNew/WhatsNew";
+import WhatsNew from "../components/common/WhatsNew";
 import { academiesData } from "@/utils/AcademiesData";
 import { uniqueSectionContent } from "@/utils/uniqueSection";
 import { uniqueTabs } from "@/utils/uniqueTabs";
@@ -14,7 +14,7 @@ import { whatsNewDefaultContent, whatsNewDefaultData } from "@/utils/utils";
 
 export default function HomePage() {
   return (
-    <div style={{background: "radial-gradient(at top right, #4E5FF545 20%, #DBDFFF00 50%)"}}>
+    <div className="md:px-0 px-2.5" style={{background: "radial-gradient(at top right, #4E5FF545 20%, #DBDFFF00 50%)"}}>
       <Hero 
       heroData={heroSections.default}
       brandData={brandSections.default}

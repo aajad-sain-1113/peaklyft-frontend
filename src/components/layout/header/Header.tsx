@@ -6,6 +6,7 @@ import MobileMenu from "./MobileMenu";
 import { useState } from "react";
 import Navbar from "./Navbar";
 import { Button } from "../../ui/button";
+import Link from "next/link";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -16,9 +17,9 @@ const Header = () => {
       <header className="w-full lg:p-0 p-2.5">
         <div className="container flex items-center justify-between sm:py-2">
           <div className="flex items-center gap-2.5">
-            <a href="/">
+            <Link href="/">
             <Image src="/logo.png" alt="Logo" className="lg:w-[190px] w-[106.48px]" width={190} height={62} />
-            </a>
+            </Link>
             <Button variant={"main"} className="gap-2.5 h-[39.5px] w-[109px] hidden sm:flex">
               Explore{" "}
               <svg

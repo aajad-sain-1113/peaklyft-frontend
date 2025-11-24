@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 interface Brand {
   name: string;
@@ -18,6 +19,8 @@ const BrandSlider: React.FC<BrandSliderProps> = ({ title, brands }) => {
   const [isClient, setIsClient] = useState<boolean>(false);
   const timeoutRef = useRef<number | null>(null);
   const [windowWidth, setWindowWidth] = useState<number>(768);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     setIsClient(true);
@@ -38,26 +41,25 @@ const BrandSlider: React.FC<BrandSliderProps> = ({ title, brands }) => {
     };
   }, []);
 
-useEffect(() => {
-  if (currentIndex === brands.length) {
-    timeoutRef.current = window.setTimeout(() => {
-      setIsTransitioning(false);
-      setCurrentIndex(0);
-    }, 700);
-  }
-
-  return () => {
-    if (timeoutRef.current !== null) {
-      clearTimeout(timeoutRef.current);
+  useEffect(() => {
+    if (currentIndex === brands.length) {
+      timeoutRef.current = window.setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(0);
+      }, 700);
     }
-  };
-}, [currentIndex, brands.length]);
 
+    return () => {
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [currentIndex, brands.length]);
 
   const renderBrand = (brand: Brand, index: number | string) => (
     <div
       key={index}
-      className="shrink w-[220px] h-[60px] border-l border-black flex items-center justify-center bg-card"
+      className="shrink md:w-[220px] w-full h-[60px] border-l border-black flex items-center justify-center bg-card px-2.5"
     >
       <img
         src={brand.logo}
@@ -65,18 +67,20 @@ useEffect(() => {
         className="w-[201px] h-[58.53px] object-contain"
         onError={(e) => {
           e.currentTarget.style.display = "none";
-          e.currentTarget.parentElement!.innerHTML =
-            `<span class="text-card-foreground font-bold text-xl">${brand.name}</span>`;
+          e.currentTarget.parentElement!.innerHTML = `<span class="text-card-foreground font-bold text-xl">${brand.name}</span>`;
         }}
       />
     </div>
   );
 
   return (
-    <div className="w-full max-w-[1188px] mx-auto bg-main shadow-[0px_13.35px_40.04px_0px_rgba(0,0,0,0.16)] pt-[30px] pb-[25px] px-[20px] md:px-[40px] overflow-hidden rounded-[14px] mt-[30px]">
-      <div className="max-w-7xl mx-auto">
-
-        {/* ⭐ Dynamic Title */}
+    <div
+      className={`w-full max-w-[1188px] mx-auto bg-main shadow-[0px_13.35px_40.04px_0px_rgba(0,0,0,0.16)]
+    pt-[30px] pb-[25px] px-[20px] md:px-[40px] overflow-hidden rounded-[14px] mt-[30px]
+    ${isHome ? "h-auto" : "h-[249px]"}
+  `}
+    >
+      <div className="max-w-[1188px] mx-auto">
         <h2 className="text-[20px] md:text-[28px] leading-[1.5em] font-bold text-center text-foreground mb-5">
           {title}
         </h2>
@@ -100,9 +104,7 @@ useEffect(() => {
               }}
             >
               {brands.map((brand, index) => renderBrand(brand, index))}
-              {brands.map((brand, index) =>
-                renderBrand(brand, `dup-${index}`)
-              )}
+              {brands.map((brand, index) => renderBrand(brand, `dup-${index}`))}
             </div>
           </div>
 

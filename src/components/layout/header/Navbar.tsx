@@ -1,4 +1,5 @@
 import { Headset } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
@@ -7,9 +8,9 @@ const Navbar = () => {
         <p className="font-poppins text-sm font-medium leading-[25px] text-main">
           AntWalk C2K Summit 2025 - The Bengaluru Edition || February 20, 2025
           6:00 PM -{" "}
-          <a href="#" className="text-primary hover:underline">
+          <Link href="#" className="text-primary hover:underline">
             Register Now
-          </a>
+          </Link>
         </p>
         <div className="flex items-center gap-1 font-poppins text-[15px] font-normal leading-[25px] text-main">
           <Headset className="h-4 w-4" />

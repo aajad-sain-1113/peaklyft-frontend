@@ -1,5 +1,5 @@
 import AcademiesSection from "@/src/components/AcademiesSection";
-import { academiesData } from "@/utils/utils";
+import { academiesData } from "@/utils/AcademiesData";
 
 export default function PeoplePage() {
   return (

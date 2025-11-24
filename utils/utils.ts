@@ -3,6 +3,7 @@ export interface MethodologyItem {
   id: number;
   title: string;
   icon: string;
+  heading: string;
   description: string;
 }
 
@@ -10,23 +11,26 @@ export const methodologyData: MethodologyItem[] = [
   {
     id: 0,
     title: "Design",
-    icon: "/svgviewer-output.svg",
+    icon: "/spider.svg",
+    heading: "Know what it takes to Succeed",
     description:
-      "Highly customised learning blueprints designed by experts to align workforce capabilities with business objectives.",
+      "Comprehensive Success Profiles validated by Industry Experts Define role-specific capabilities essential for success. Utilize frameworks designed by experts and aligned with industry standards.",
   },
   {
     id: 1,
     title: "Measure",
     icon: "/cload.svg",
+    heading: "Measure Holistically Where your team stands",
     description:
-      "Data-driven assessment insights to accurately understand current team competency and benchmark skill gaps.",
+      "Comprehensive Assessments with Actionable Analytics Evaluate individual, team, and organizational capabilities using diverse tools. Track progress, identify skill gaps, and measure training effectiveness with our analytics dashboard.",
   },
   {
     id: 2,
     title: "Build",
     icon: "/darkrender.svg",
+    heading: "Build gap with precise learning assets",
     description:
-      "Specific learning assets created by experts to upskill employees and improve business productivity.",
+      "Specific Learning Assets created by Industry Experts Access a diverse library of learning materials from trusted partners and AntWalk Originals.​​Provide customized training to quickly upskill employees and enhance productivity.",
   },
 ];
 
@@ -91,18 +95,18 @@ export const footerData = {
     {
       title: "Academies",
       links: [
-        { name: "Sales Academy", href: "/academies/sales" },
-        { name: "Customer Success Academy", href: "/academies/customer-success" },
-        { name: "Finance Academy", href: "/academies/finance" },
-        { name: "Leadership & EI Academy", href: "/academies/leadership" },
-        { name: "Human Resource Academy", href: "/academies/hr" },
-        { name: "PowerSkills Academy", href: "/academies/powerskills" },
-        { name: "Data and AI Academy", href: "/academies/data-ai" },
-        { name: "Cybersecurity Academy", href: "/academies/cybersecurity" },
-        { name: "Software Engineering​ Academy", href: "/academies/software" },
-        { name: "Cloud & Infrastructure​ Academy​", href: "/academies/cloud" },
-        { name: "Product & Design Academy", href: "/academies/design" },
-        { name: "Gen AI Academy", href: "/academies/gen-ai" },
+        { name: "Sales Academy", href: "/solutions/sales-academy" },
+        { name: "Customer Success Academy", href: "/solutions/customer-success-academy" },
+        { name: "Finance Academy", href: "/solutions/finance-academy" },
+        { name: "Leadership & EI Academy", href: "/solutions/leadership-academy" },
+        { name: "Human Resource Academy", href: "/solutions/hr-academy" },
+        { name: "PowerSkills Academy", href: "/solutions/powerskills-academy" },
+        { name: "Data and AI Academy", href: "/solutions/data-ai" },
+        { name: "Cybersecurity Academy", href: "/solutions/cybersecurity" },
+        { name: "Software Engineering​ Academy", href: "/solutions/software" },
+        { name: "Cloud & Infrastructure​ Academy​", href: "/solutions/cloud" },
+        { name: "Product & Design Academy", href: "/solutions/design" },
+        { name: "Gen AI Academy", href: "/solutions/gen-ai" },
       ],
     },
 

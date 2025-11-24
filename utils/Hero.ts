@@ -51,7 +51,7 @@ export const heroSections = {
 
   "sales-academy": {
     type: "simple",
-    topTagline: "AntWalk Sales Academy",
+    badge: "AntWalk Sales Academy",
     simpleTitle: "Close More Deals, Faster!",
     description:
       "Transform your salesforce with a dedicated Sales Capability Academy that builds skills, drives consistency, and accelerates revenue growth.",

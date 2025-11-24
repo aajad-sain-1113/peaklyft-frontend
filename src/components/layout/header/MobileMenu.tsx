@@ -4,6 +4,7 @@ import { useState } from "react";
 import { X, ChevronDown, ChevronUp, ArrowLeft } from "lucide-react";
 import { headerMenu } from "@/utils/Header";
 import Image from "next/image";
+import Link from "next/link";
 
 const MobileMenu = ({
   open,
@@ -95,13 +96,13 @@ const MobileMenu = ({
                         }`}
                       >
                         {section.items?.map((i: any) => (
-                          <a
+                          <Link
                             key={i}
                             href="#"
                             className="block py-1 text-[14px] text-gray-700"
                           >
                             {i}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
